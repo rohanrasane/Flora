@@ -11,13 +11,27 @@ import {
 } from 'react-native';
 
 import ImagePicker from 'react-native-image-picker';
+import http from 'superagent';
+
+import api from './api';
 
 export default class CameraPage extends React.Component {
 
   state = {
     avatarSource: null,
-    videoSource: null
+    videoSource: null,
+    images:[]
   };
+
+  //constructor {
+    //  this.acb = this.selectPhotoTapped.bind(this);
+  //}
+
+  componentWillMount(){
+
+
+  }
+
 
   selectPhotoTapped() {
     const options = {
@@ -53,6 +67,40 @@ export default class CameraPage extends React.Component {
         } else {
           source = {uri: response.uri.replace('file://', ''), isStatic: true};
         }
+
+        /*api.getData().then((res) =>{
+          var response = res.responses[0].labelAnnotations;
+          var items = [];
+          console.log("@@@@@@@@@@@@@@@@@"+response[0].description);
+          var str ='';
+          console.log("Str is "+str + "Length" + response.length);
+          for (var i =0 ;i<response.length;i++){
+            items[i] = response[i].description;
+            console.log("Str is "+items[i]);
+          }
+
+          this.setState({
+            images:items
+          })
+        });
+        */
+
+        api.getImageData(response.data).then((res) =>{
+          console.log("Log1" + JSON.stringify(res));
+          var response = res.responses[0].labelAnnotations;
+          console.log("Log2");
+          var items = [];
+          console.log("Log3");
+          console.log("@@@@@@@@@@@@@@@@@"+response[0].description);
+          for (var i =0 ;i<response.length;i++){
+            items[i] = response[i].description;
+            console.log("Str is "+items[i] + " ");
+          }
+
+          this.setState({
+            images:items
+          })
+        });
 
         this.setState({
           avatarSource: source
@@ -97,6 +145,9 @@ export default class CameraPage extends React.Component {
           { this.state.avatarSource === null ? <Text>Select a Photo</Text> :
             <View>
               <Image style={styles.avatar} source={this.state.avatarSource} />
+              <Text>
+                Test: {this.state.images}
+              </Text>
             </View>
           }
           </View>
@@ -135,4 +186,4 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150
   }
-}); 
+});
