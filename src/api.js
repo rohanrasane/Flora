@@ -1,4 +1,3 @@
-import http from 'superagent';
 
 
 var api = {
@@ -6,13 +5,6 @@ var api = {
 		var url = 'http://localhost:8082/ftp';
 		return fetch(url).then((res) =>res.json());
 	},
-	/*httpGet(){
-		http.get('http://localhost:8082/ftp', function(err, res){
-		  if (err) throw err;
-		  console.log(res.text);
-		  return res.body;
-		});
-	}*/
 
 	getImageData(filePath){
 		var formdata = new FormData();

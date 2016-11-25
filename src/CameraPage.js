@@ -10,8 +10,8 @@ import {
   Platform
 } from 'react-native';
 
-import ImagePicker from 'react-native-image-picker';
-import http from 'superagent';
+
+var ImagePicker = require('react-native-image-picker');
 
 import api from './api';
 

@@ -94,14 +94,14 @@ function HomeView(props) {
         <Image style={ styles.image } source={require('./img/5@3x.png')} />
       </TouchableHighlight>
       <Text>
-        Recognize Plant 
+        Recognize Plant
       </Text>
       <TouchableHighlight style={ styles.imageContainer }
         onPress={() => {
             props.dispatch({ type: 'scanCode', id: 'A' });
         }}>
         <Image style={ styles.image } source={require('./img/5@3x.png')} />
-      </TouchableHighlight> 
+      </TouchableHighlight>
       <Text>
         Scan Code
       </Text>
@@ -110,7 +110,7 @@ function HomeView(props) {
           props.dispatch({ type: 'diseasesCares', id: 'A' });
         }}>
         <Image style={ styles.image } source={require('./img/5@3x.png')} />
-      </TouchableHighlight> 
+      </TouchableHighlight>
       <Text>
         Diseases & Cares
       </Text>
@@ -119,7 +119,7 @@ function HomeView(props) {
           props.dispatch({ type: 'gardenInfo', id: 'A' });
         }}>
         <Image style={ styles.image } source={require('./img/5@3x.png')} />
-      </TouchableHighlight> 
+      </TouchableHighlight>
       <Text>
         My Garden Info
       </Text>
@@ -157,11 +157,11 @@ function ScanCode(props) {
         <Image style={ styles.image } source={require('./img/5@3x.png')} />
       </TouchableHighlight>
       <Text>
-        Bar code 
+        Bar code
       </Text>
       <TouchableHighlight style={ styles.imageContainer }>
         <Image style={ styles.image } source={require('./img/5@3x.png')} />
-      </TouchableHighlight> 
+      </TouchableHighlight>
       <Text>
         QR Code
       </Text>
@@ -296,7 +296,7 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 40
   }
-  
+
 });
 
 AppRegistry.registerComponent('Flora', () => Flora);
